@@ -1,34 +1,51 @@
-let list = [];
-let inputButton = document.querySelector(".button");
-inputButton.addEventListener("click", addItem);
-
-function addItem() {
-    let item = document.querySelector(".Todo").value;
-    if (item != null) {
-        itemList.push(item);
-        document.querySelector(".Todo").value = "";
-        document.querySelector(".Todo").focus();
-    }
-
-    showList();
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
 }
 
-function showList() {
-    let list = "<ul>"
-    for (let i = 0; i < itemList.length; i++){
-        list += "<li>" + itemList[i] + "<span class='close' id=" + i + ">" + "\u00D7" + "</span></li>";
-    }
-    list += "</ul>";
-    document.querySelector(".tolist").innerHTML = list;
-
-    let deleteButtons = document.querySelectorAll(".close");
-    for (let i = 0; i < deleteButtons.length; i++){
-        deleteButtons[i].addEventListener("click", deleteItem);
-    }
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
 }
 
-function deleteItem() {
-    let id = this.getAttribute("id");
-    itemList.splice(id, 1);
-    showList();
-}
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+function newElement() {
+    var li = document.createElement("li");
+    var inputValue = document.getElementById("text").value;
+    var t = document.createTextNode(inputValue);
+    li.appendChild(t);
+    if (inputValue === '') {
+      alert("You must write something!");
+    } else {
+      document.getElementById("mylist").appendChild(li);
+    }
+    document.getElementById("text").value = "";
+  
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    li.appendChild(span);
+  
+    for (i = 0; i < close.length; i++) {
+      close[i].onclick = function() {
+        var div = this.parentElement;
+        div.style.display = "none";
+      }
+    }
+  }

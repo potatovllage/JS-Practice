@@ -6,18 +6,17 @@
         <link rel="stylesheet" href="./todolist.css"/>
     </head>
     <body>
-        <div class="todolist">
-            <div class="headline">
-                <p class="headtitle">영준이의 To-do-list</p>
-            </div>
-            <div class="addlist">
-                <form>
-                    <input type="text" id="Todo" placeholder="오늘의 일을 입력하세요">
-                    <button type="button" id="button">입력</button>
-                </form>
-                <div class="tolist"></div>
-            </div>
+        <div class="header">
+                <h2>영준이의 To do list</h2>
+                <input type="text" id="text" placeholder="오늘의 일을 입력하세요">
+                <span onclick="newElement()" class="button">Add</span>
         </div>
+
+        <ul id="mylist">
+            <li>밥 먹기</li>
+            <li>공부하기</li>
+            <li>게임하기</li>
+        </ul>
     </body>
     <script src="todolist.js"></script>
 </html>
