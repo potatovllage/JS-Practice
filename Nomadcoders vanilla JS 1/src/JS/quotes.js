@@ -40,6 +40,10 @@ const quotes = [
       quote: "Travel expands the mind and fills the gap.",
       author: "Sheda Savage",
     },
+    {
+      quote: "Money begets money",
+      author: "John Ray",
+    },
   ];
 
 const quote = document.querySelector("#quote span:first-child");
