@@ -31,10 +31,14 @@ body,html{
 
 .hidden {
     display: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
-
-
+.backImg{
+    width: 100%;
+    
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
 
