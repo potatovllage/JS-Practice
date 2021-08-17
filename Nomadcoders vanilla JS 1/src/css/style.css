@@ -8,6 +8,11 @@ body,html{
     height: 100%;
 }
 
+.headline{
+    height: 10%;
+    width: 100%;
+}
+
 .time{
     display: flex;
     flex-direction: column;
@@ -16,9 +21,10 @@ body,html{
     margin: 30px;
 }
 
-.mainmenu{
+.main{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     justify-content: space-between;
 }
@@ -29,4 +35,6 @@ body,html{
     justify-content: center;
     align-items: center;
 }
+
+
 
