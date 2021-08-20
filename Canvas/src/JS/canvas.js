@@ -12,7 +12,9 @@ canvas.height = 600;
 ctx.strokeStyle = "#2c2c2c";
 ctx.lineWidth = 2.5;
 
-let painting = false; // 처음은 그리지 않기에 false로 둔다.
+// 처음은 그리지 않기에 false로 둔다.
+let painting = false; 
+let filling = false;
 
 // stop은 그림을 안그릴때를 생각해 false start는 그림을 그릴때를 생각하여 true
 function stopPainting() {
@@ -54,7 +56,15 @@ function handleRangeChange(event){
 }
 
 // canvas 모드 설정
-
+function handleModeClick() {
+    if (filling === true){
+        filling = false;
+        mode.innerText = "FILL"
+    } else {
+        filling = true;
+        mode.innerText = "PAINT"
+    }
+}
 
 // canvas 위 마우스 설정과 그리기 전/후 이벤트
 if (canvas) {
