@@ -1,6 +1,8 @@
 const canvas = document.getElementById("jsCanvas"); // canvas 변수 선언
 const ctx = canvas.getContext("2d"); // 2d canvas 설정
 const colors = document.getElementsByClassName("jsColor"); // 색 변경 변수 선언
+const range = document.getElementById("jsRange"); // 브러쉬 크기 조정 변수
+const mode = document.getElementById("jsMode"); // canvas 모드 설정
 
 // canvas 크기 설정
 canvas.width = 600;
@@ -45,6 +47,15 @@ function changeColor(event){
     ctx.strokeStyle = color;
 }
 
+// 브러쉬 크기 조정
+function handleRangeChange(event){
+    const size = event.target.value;
+    ctx.lineWidth = size;
+}
+
+// canvas 모드 설정
+
+
 // canvas 위 마우스 설정과 그리기 전/후 이벤트
 if (canvas) {
     canvas.addEventListener("mousemove", onMouseMove);
@@ -57,3 +68,11 @@ if (canvas) {
 Array.from(colors).forEach(color => 
     color.addEventListener("click", changeColor)
 );
+
+if (range) {
+    range.addEventListener("input", handleRangeChange);
+}
+
+if (mode) {
+    mode.addEventListener("click", handleModeClick);
+}
