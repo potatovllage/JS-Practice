@@ -3,6 +3,7 @@ const ctx = canvas.getContext("2d"); // 2d canvas 설정
 const colors = document.getElementsByClassName("jsColor"); // 색 변경 변수 선언
 const range = document.getElementById("jsRange"); // 브러쉬 크기 조정 변수
 const mode = document.getElementById("jsMode"); // canvas 모드 설정
+const saveBtn = document.getElementById("jsSave");
 
 const INITIAL_COLOR = "#2c2c2c";
 const CANVAS_SIZE = 700;
@@ -80,6 +81,10 @@ function handleCanvasClick() {
         }
 }
 
+function handleCM(evnet) {
+    evnet.preventDefault();
+}
+
 // canvas 위 마우스 설정과 그리기 전/후 이벤트
 if (canvas) {
     canvas.addEventListener("mousemove", onMouseMove);
@@ -87,6 +92,7 @@ if (canvas) {
     canvas.addEventListener("mouseup", stopPainting);
     canvas.addEventListener("mouseleave", stopPainting);
     canvas.addEventListener("click", handleCanvasClick);
+    canvas.addEventListener("contextmenu", handleCM);
 }
 
 // Array를 만들고 color을 돌려서 이벤트 호출 
@@ -102,4 +108,8 @@ if (range) {
 // mode 실행시 시작할 이벤트
 if (mode) {
     mode.addEventListener("click", handleModeClick);
+}
+
+if (saveBtn) {
+    saveBtn.addEventListener("click", handleSaveClick);
 }
